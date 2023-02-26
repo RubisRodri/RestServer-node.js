@@ -6,15 +6,14 @@ class Server {
     constructor(){
         this.app = express();
         this.port= process.env.PORT
-
+        this.usuariosPath = '/api/usuarios';
         //Middelware funciones que se van a realizar cuando ejecutemos nuestro servidor
         this.middelware();
         this.routes();
     }
 
     middelware(){
-
-
+        
         this.app.use( cors())
         //directorio publico
         this.app.use(express.static('public'));
@@ -22,29 +21,9 @@ class Server {
     }
 
     routes(){
-        this.app.get('/api', (req, res) => {
-            res.json({
-                msg:'get Api'
-            });
-        })
-
-        this.app.post('/api', (req, res) => {
-            res.json({
-                msg:'soy post'
-            });
-        })
-
-        this.app.put('/api', (req, res) => {
-            res.json({
-                msg:'soy put'
-            });
-        })
-
-        this.app.delete('/api', (req, res) => {
-            res.json({
-                msg:'soy delete'
-            });
-        })
+         
+        this.app.use(this.usuariosPath, require('../routes/usuarios'));
+   
     }
 
     listen(){
