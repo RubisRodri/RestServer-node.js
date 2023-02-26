@@ -12,7 +12,7 @@ router.get('/', usuariosGet);
 
 router.post('/',usuariospost);
 
-router.put('/', usuariosPut);
+router.put('/:id', usuariosPut);
 
 router.patch('/', usuariosPatch);
 
