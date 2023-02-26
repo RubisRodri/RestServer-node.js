@@ -9,8 +9,13 @@ const usuariosGet = (req, res = Response) => {
 }
 
 const usuariospost = (req, res) => {
+    const { nombre, edad, apellido} = req.body;
+
     res.json({
-        msg:'soy post-contrador'
+        msg:'soy post-contrador',
+        nombre, 
+        edad,
+        apellido
     });
 }
 

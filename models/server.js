@@ -13,8 +13,12 @@ class Server {
     }
 
     middelware(){
+        //CORS
+        this.app.use( cors());
         
-        this.app.use( cors())
+        //lectura y parceo de un post
+        this.app.use(express.json());
+
         //directorio publico
         this.app.use(express.static('public'));
 
